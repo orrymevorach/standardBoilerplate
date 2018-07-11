@@ -24,13 +24,12 @@ gulp.task('scripts', () => {
         .pipe(reload({ stream: true }));
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
     gulp.watch('./dev/scripts/*.js', ['scripts']);
     gulp.watch('./dev/styles/*.scss', ['styles']);
+    gulp.watch('./dev/styles/*.scss', reload)
     gulp.watch('*.html', reload);
 });
-
-
 
 gulp.task('browser-sync', () => {
     browserSync.init({
